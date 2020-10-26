@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import matplotlib
 import random
 import numpy as np
+import route
 from numpy.core.arrayprint import _formatArray
+import ploter
 
 matplotlib.use('TkAgg')
-
-
 
 
 def connect_points(x, y, p1, p2):
@@ -152,7 +152,8 @@ def simulation(n, mutationRate, x, y):
 
     return impPop, ffValues
 
-x = [np.random.randint(1,10) for i in range(10)]
-y = [np.random.randint(1,10) for i in range(10)]
-gen, values = simulation(100, 0.1, x, y)
 
+x = route.Route(10)
+print(x)
+vert = x.get_vertices()
+print(vert)
