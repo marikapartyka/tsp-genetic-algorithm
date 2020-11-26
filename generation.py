@@ -1,5 +1,6 @@
 import route
 import random
+import numpy as np
 
 
 class Generation:
@@ -29,9 +30,9 @@ class Generation:
 
         return listOfValues
 
-    def generate_children(self, genParents, mutationRate):
-        l = len(genParents)  # must be an even number
-        v, pos = self.which_min_distance(self.fitness_function_generation(genParents), 2)
+    def generate_children(self, mutationRate):
+        l = len(self.gen)  # must be an even number
+        v, pos = self.which_min_distance(self.fitness_function_generation(), 2)
         pos_copy = pos.copy()
 
         random.shuffle(pos)
@@ -41,9 +42,9 @@ class Generation:
         listOfChildren = []
 
         for i, j in pairs:
-            listOfChildren.append(born_child(genParents[i], genParents[j], mutationRate))
+            listOfChildren.append(self.gen[i].born_child(self.gen[j], mutationRate))
 
-        listOfChildren.append(genParents[pos[0]])
-        listOfChildren.append(genParents[pos[1]])
+        listOfChildren.append(self.gen[pos[0]])
+        listOfChildren.append(self.gen[pos[1]])
 
         return listOfChildren

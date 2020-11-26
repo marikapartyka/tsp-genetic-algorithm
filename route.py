@@ -44,8 +44,8 @@ class Route:
                 parentInx = (parentInx + 1) % l
         mutation = random.random()
         if mutation < mutationRate:
-            indexToMutate1 = random.randint(0, len(child) - 1)
-            indexToMutate2 = random.randint(0, len(child) - 1)
+            indexToMutate1 = random.randint(0, len(child.len) - 1)
+            indexToMutate2 = random.randint(0, len(child.len) - 1)
             child.route[indexToMutate1], child.route[indexToMutate2] = child.route[indexToMutate2], child.route[
                 indexToMutate1]
         return child

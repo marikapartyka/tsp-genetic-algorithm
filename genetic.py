@@ -6,6 +6,8 @@ import route
 from numpy.core.arrayprint import _formatArray
 import ploter
 import generation
+import simulation
+
 matplotlib.use('TkAgg')
 
 
@@ -45,10 +47,7 @@ matplotlib.use('TkAgg')
 #     plt.show()
 
 
-# def new_route(route):
-#     x = route[:]
-#     random.shuffle(x)
-#     return x
+
 
 
 # def born_child(r1, r2, mutationRate):
@@ -173,6 +172,9 @@ Gen = generation.Generation(5, 10, ploter.x, ploter.y)
 
 Gen.generate_population_0()
 print(Gen.gen[1])
+print(Gen.generate_children(0.1))
 # print(child.fitness_function(ploter.x, ploter.y))
 
 # print(route.fitness_function_generation(ploter.x, ploter.y, gen))
+sim = simulation.Simulation(100, 5, 10,0.1, ploter.x, ploter.y)
+print(sim)
